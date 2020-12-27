@@ -1,5 +1,10 @@
 .logoMobile {
+  height: 30px;
+  width: 150px;
+
   & path {
     fill: var(--marketplaceColor);
   }
 }
+
+
