@@ -1,0 +1,58 @@
+
+
+.mainWrapper {
+   width: calc(100% - 48px);
+   max-width: 900px;
+   margin: 24px auto;
+   line-height: 32px;
+
+   @media (--viewportMedium) {
+      
+      width: calc(100% - 72px);
+      margin: 72px auto 36px auto;
+   }
+
+}
+
+
+.headingText {
+   text-align: center;
+}
+
+.coverImage {
+   max-width: 90%;
+   border-radius: 4px;
+   object-fit: cover;
+   padding: 5px;
+   margin: 32px auto;
+}
+
+.grid {
+
+   @media (--viewportMedium) {
+      display: flex;
+   }
+} 
+
+.block {
+   display: block;
+}
+
+.gridImage {
+   text-align: center;
+   width: 80%;
+   height: 100%;
+   margin: 15px auto;
+   padding: 0 15px;
+
+   @media (--viewportMedium) {
+      width: 33%;
+   }
+
+   
+}
+   
+
+
+
+

@@ -7,6 +7,8 @@ import {
   EditListingPage,
   EmailVerificationPage,
   InboxPage,
+  Jaegers,
+  Businesses,  
   LandingPage,
   ListingPage,
   ManageListingsPage,
@@ -15,6 +17,8 @@ import {
   PasswordRecoveryPage,
   PasswordResetPage,
   StripePayoutPage,
+  JaegerFAQPage,
+  BusinessFAQPage,
   PaymentMethodsPage,
   PrivacyPolicyPage,
   ProfilePage,
@@ -57,6 +61,16 @@ const routeConfiguration = () => {
       path: '/',
       name: 'LandingPage',
       component: props => <LandingPage {...props} />,
+    },
+    {
+      path: '/jaegers',
+      name: 'Jaegers',
+      component: Jaegers,
+    },
+    {
+      path: '/businesses',
+      name: 'Businesses',
+      component: Businesses,
     },
     {
       path: '/about',
@@ -299,6 +313,16 @@ const routeConfiguration = () => {
       name: 'PrivacyPolicyPage',
       component: props => <PrivacyPolicyPage {...props} />,
     },
+    {
+      path: '/jaeger-faq',
+      name: 'JaegerFAQPage',
+      component: props => <JaegerFAQPage {...props} />,
+    },
+    {
+      path: '/business-faq',
+      name: 'BusinessFAQPage',
+      component: props => <BusinessFAQPage {...props} />,
+    }, 
     {
       path: '/styleguide',
       name: 'Styleguide',

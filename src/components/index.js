@@ -174,3 +174,6 @@ export { default as Topbar } from './Topbar/Topbar';
 export { default as TopbarDesktop } from './TopbarDesktop/TopbarDesktop';
 export { default as TopbarMobileMenu } from './TopbarMobileMenu/TopbarMobileMenu';
 export { default as TransactionPanel } from './TransactionPanel/TransactionPanel';
+
+export { default as JaegerFAQ } from './JaegerFAQ/JaegerFAQ';
+export { default as BusinessFAQ } from './BusinessFAQ/BusinessFAQ';

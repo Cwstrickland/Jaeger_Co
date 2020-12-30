@@ -23,3 +23,8 @@ export { default as StyleguidePage } from './StyleguidePage/StyleguidePage';
 export { default as TermsOfServicePage } from './TermsOfServicePage/TermsOfServicePage';
 export { default as TopbarContainer } from './TopbarContainer/TopbarContainer';
 export { default as TransactionPage } from './TransactionPage/TransactionPage';
+
+export { default as Jaegers } from './Jaegers/Jaegers'; 
+export { default as Businesses } from './Businesses/Businesses'; 
+export { default as JaegerFAQPage } from './JaegerFAQPage/JaegerFAQPage';
+export { default as BusinessFAQPage } from './BusinessFAQPage/BusinessFAQPage';
