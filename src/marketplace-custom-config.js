@@ -74,30 +74,11 @@ export const filters = [
     config: {},
   },
   {
-    id: 'category',
-    label: 'Category',
-    type: 'SelectSingleFilter',
-    group: 'secondary',
-    queryParamNames: ['pub_category'],
-    config: {
-      // "key" is the option you see in Flex Console.
-      // "label" is set here for the UI only.
-      // Note: label is not added through the translation files
-      // to make filter customizations a bit easier.
-      options: [
-        { key: 'smoke', label: 'Smoke' },
-        { key: 'electric', label: 'Electric' },
-        { key: 'wood', label: 'Wood' },
-        { key: 'other', label: 'Other' },
-      ],
-    },
-  },
-  {
-    id: 'amenities',
-    label: 'Amenities',
+    id: 'salesMedium',
+    label: 'Medium',
     type: 'SelectMultipleFilter',
-    group: 'secondary',
-    queryParamNames: ['pub_amenities'],
+    group: 'primary',
+    queryParamNames: ['salesMedium'],
     config: {
       // Optional modes: 'has_all', 'has_any'
       // https://www.sharetribe.com/api-reference/marketplace.html#extended-data-filtering
@@ -108,38 +89,76 @@ export const filters = [
       // Note: label is not added through the translation files
       // to make filter customizations a bit easier.
       options: [
-        {
-          key: 'towels',
-          label: 'Towels',
-        },
-        {
-          key: 'bathroom',
-          label: 'Bathroom',
-        },
-        {
-          key: 'swimming_pool',
-          label: 'Swimming pool',
-        },
-        {
-          key: 'own_drinks',
-          label: 'Own drinks allowed',
-        },
-        {
-          key: 'jacuzzi',
-          label: 'Jacuzzi',
-        },
-        {
-          key: 'audiovisual_entertainment',
-          label: 'Audiovisual entertainment',
-        },
-        {
-          key: 'barbeque',
-          label: 'Barbeque',
-        },
-        {
-          key: 'own_food_allowed',
-          label: 'Own food allowed',
-        },
+        { key: 'phone', label: 'Phone' },
+        { key: 'email', label: 'E-Mail' },
+        { key: 'chat', label: 'Chat' },
+        { key: 'inPerson', label: 'In-Person' },
+      ],
+    },
+  },
+  {
+    id: 'salesRole',
+    label: 'Role',
+    type: 'SelectSingleFilter',
+    group: 'primary',
+    queryParamNames: ['salesRole'],
+    config: {
+      // Optional modes: 'has_all', 'has_any'
+      // https://www.sharetribe.com/api-reference/marketplace.html#extended-data-filtering
+      searchMode: 'has_all',
+
+      // "key" is the option you see in Flex Console.
+      // "label" is set here for this web app's UI only.
+      // Note: label is not added through the translation files
+      // to make filter customizations a bit easier.
+      options: [
+        { key: 'inside', label: 'Inside sales' },
+        { key: 'outside', label: 'Outside Sales' },
+        { key: 'support', label: 'Sales Support' },
+        { key: 'client', label: 'Client Services' },
+        { key: 'lead', label: 'Lead Generation' },
+        { key: 'bisdev', label: 'Business Dev Managers' },
+        { key: 'account', label: 'Account Managers' },
+      ],
+    },
+  },  
+  {
+    id: 'industryFocus',
+    label: 'Industry Focus',
+    type: 'SelectSingleFilter',
+    group: 'primary',
+    queryParamNames: ['industryFocus'],
+    config: {
+      // "key" is the option you see in Flex Console.
+      // "label" is set here for the UI only.
+      // Note: label is not added through the translation files
+      // to make filter customizations a bit easier.
+      options: [
+        // to-do need more options here
+        { key: 'retail', label: 'Retail Sales' },
+        { key: 'b2b', label: 'Business to Business' },
+        { key: 'b2c', label: 'Business to Customer' },
+        { key: 'other', label: 'Other' },
+      ],
+    },
+  },
+  {
+    id: 'yearsExperiance',
+    label: 'Years Experiance',
+    type: 'SelectSingleFilter',
+    group: 'primary',
+    queryParamNames: ['yearsExperiance'],
+    config: {
+      // "key" is the option you see in Flex Console.
+      // "label" is set here for the UI only.
+      // Note: label is not added through the translation files
+      // to make filter customizations a bit easier.
+      options: [
+        // to-do need more options here
+        { key: '0-1', label: '0-1 Years' },
+        { key: '2-5', label: '2-5 Years' },
+        { key: '5-10', label: '5-10 Years' },
+        { key: '10+', label: '10+ Years' },
       ],
     },
   },

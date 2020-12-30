@@ -27,6 +27,13 @@
   color: var(--failColor);
 }
 
+.error2 {
+  color: var(--failColorLight);
+  background-color: var(--failColor);
+  text-align: center;
+  padding: 10px;
+}
+
 .submitButton {
   margin-top: auto;
   margin-bottom: 24px;

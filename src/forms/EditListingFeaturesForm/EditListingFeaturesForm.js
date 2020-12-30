@@ -7,7 +7,7 @@ import { FormattedMessage } from '../../util/reactIntl';
 import { findOptionsForSelectFilter } from '../../util/search';
 import { propTypes } from '../../util/types';
 import config from '../../config';
-import { Button, FieldCheckboxGroup, Form } from '../../components';
+import { Button, FieldCheckboxGroup, FieldSelect , Form } from '../../components';
 
 import css from './EditListingFeaturesForm.module.css';
 
@@ -49,14 +49,42 @@ const EditListingFeaturesFormComponent = props => (
         </p>
       ) : null;
 
-      const options = findOptionsForSelectFilter('amenities', filterConfig);
+      const medium = 'salesMedium';
+      const mediumOptions = findOptionsForSelectFilter( medium, filterConfig);
+
+      const experiance = 'yearsExperiance';
+      const experianceOptions = findOptionsForSelectFilter( experiance, filterConfig);
+
+      const focusKey = 'industryFocus';
+      const focusOptions = findOptionsForSelectFilter( focusKey, filterConfig);
+
+      
       return (
         <Form className={classes} onSubmit={handleSubmit}>
           {errorMessage}
           {errorMessageShowListing}
 
-          <FieldCheckboxGroup className={css.features} id={name} name={name} options={options} />
+          <FieldSelect className={css.features} id={focusKey} name={focusKey} label={"Industry Focus"}>
+            {focusOptions.map(o => (
+              <option key={o.key} value={o.key}> 
+                {o.label}
+              </option>
+            ))}
+          </FieldSelect>
+          <FieldSelect className={css.features} id={experiance} name={experiance} label={"Years of Experiance"}>
+            {experianceOptions.map(l => (
+              <option key={l.key} value={l.key}> 
+                {l.label}
+              </option>
+            ))}
+          </FieldSelect>
 
+          <FieldCheckboxGroup className={css.features} id={medium} name={medium} options={mediumOptions} label={"Sales Channels"}/>
+
+          <p className={css.error2}>  
+            <FormattedMessage id="EditListingFeaturesForm.ensureVerified" />
+          </p>
+          
           <Button
             className={css.submitButton}
             type="submit"
