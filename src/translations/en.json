@@ -763,7 +763,7 @@
   "SectionHowItWorks.part3Title": "3. Review and Repeat",
   "SectionHowItWorks.titleLineOne": "Let the hunt begin.",
   "SectionHowItWorks.titleLineTwo": "(How Jaeger Co. works)",
-  "SectionLocations.listingsInLocation": "Jaegers in {location}",
+  "SectionLocations.listingsInLocation": "Jaegers for {location}",
   "SectionLocations.title": "Find the right Jaeger to match your buisness needs.",
   "SelectMultipleFilter.labelSelected": "{labelText} • {count}",
   "SelectMultipleFilterPlainForm.labelSelected": "{labelText} • {count}",

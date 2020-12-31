@@ -8,9 +8,9 @@ import { NamedLink } from '../../components';
 
 import css from './SectionLocations.module.css';
 
-import helsinkiImage from './images/location_helsinki.jpg';
-import rovaniemiImage from './images/location_rovaniemi.jpg';
-import rukaImage from './images/location_ruka.jpg';
+import emailImage from './images/sales-lady.jpg';
+import personImage from './images/business-front.jpg';
+import phoneImage from './images/guy-at-computer.jpg';
 
 class LocationImage extends Component {
   render() {
@@ -50,20 +50,20 @@ const SectionLocations = props => {
         <FormattedMessage id="SectionLocations.title" />
       </div>
       <div className={css.locations}>
-        {locationLink(
-          'Helsinki',
-          helsinkiImage,
-          '?address=Helsinki%2C%20Finland&bounds=60.2978389%2C25.254484899999966%2C59.9224887%2C24.782875800000056&origin=60.16985569999999%2C24.93837910000002'
+      {locationLink(
+          'Email and Chat',
+          emailImage,
+          'salesMedium=has_any%3Aemail%2Cchat'
         )}
         {locationLink(
-          'Rovaniemi',
-          rovaniemiImage,
-          '?address=Rovaniemi%2C%20Finland&bounds=67.18452510000002%2C27.32667850000007%2C66.1553745%2C24.736871199999996&origin=66.50394779999999%2C25.729390599999988'
+          'in Person',
+          personImage,
+          'salesMedium=has_all%3AinPerson'
         )}
         {locationLink(
-          'Ruka',
-          rukaImage,
-          '?address=Ruka%2C%20Finland&bounds=66.1704578%2C29.14246849999995%2C66.1614402%2C29.110453699999994&origin=66.16594940000002%2C29.12646110000003'
+          'on the Phone',
+          phoneImage,
+          'salesMedium=has_all%3Aphone'
         )}
       </div>
     </div>
