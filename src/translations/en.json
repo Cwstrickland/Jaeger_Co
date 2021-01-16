@@ -188,7 +188,6 @@
   "EditListingFeaturesForm.updateFailed": "Failed to update listing. Please try again.",
   "EditListingFeaturesPanel.createListingTitle": "Specific Sales Experiance",
   "EditListingFeaturesPanel.title": "Edit the specifics of {listingTitle}",
-  "EditListingFeaturesForm.ensureVerified": "Make sure you verify your identity with Stipe within your User Settings before proceeding!",
   "EditListingLocationForm.address": "Address",
   "EditListingLocationForm.addressNotRecognized": "We didn't recognize this location. Please try another location.",
   "EditListingLocationForm.addressPlaceholder": "123 Example Street",
