@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from '../../util/reactIntl';
-import { PropertyGroup } from '../../components';
+
+import { array, shape, string } from 'prop-types';
 
 import css from './ListingPage.module.css';
 
@@ -10,20 +11,27 @@ const SectionFeaturesMaybe = props => {
     return null;
   }
 
-  const selectedOptions = publicData && publicData.amenities ? publicData.amenities : [];
-  return (
+  const salesRole = publicData.salesRole;
+  const salesRoleOption = options.find(
+    option => option.key === salesRole
+  );
+  
+  return salesRoleOption ? (
     <div className={css.sectionFeatures}>
       <h2 className={css.featuresTitle}>
         <FormattedMessage id="ListingPage.featuresTitle" />
       </h2>
-      <PropertyGroup
-        id="ListingPage.amenities"
-        options={options}
-        selectedOptions={selectedOptions}
-        twoColumns={true}
-      />
+      <p >{salesRoleOption.label}</p>
     </div>
-  );
+  ) : null;
 };
+
+SectionFeaturesMaybe.propTypes = {
+  options: array.isRequired,
+  publicData: shape({
+    salesRole: string,
+  }).isRequired,
+};
+
 
 export default SectionFeaturesMaybe;

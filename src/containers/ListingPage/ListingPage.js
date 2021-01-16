@@ -381,7 +381,7 @@ export class ListingPageComponent extends Component {
       </NamedLink>
     );
 
-    const amenityOptions = findOptionsForSelectFilter('amenities', filterConfig);
+    const salesRoleOptions = findOptionsForSelectFilter('salesRole', filterConfig);
     const categoryOptions = findOptionsForSelectFilter('category', filterConfig);
     const category =
       publicData && publicData.category ? (
@@ -439,7 +439,7 @@ export class ListingPageComponent extends Component {
                     showContactUser={showContactUser}
                     onContactUser={this.onContactUser}
                   />
-                  <SectionFeaturesMaybe options={amenityOptions} publicData={publicData} />
+                  <SectionFeaturesMaybe options={salesRoleOptions} publicData={publicData} />
                   <SectionDescriptionMaybe description={description} />
                   
                   <SectionRulesMaybe publicData={publicData} />
