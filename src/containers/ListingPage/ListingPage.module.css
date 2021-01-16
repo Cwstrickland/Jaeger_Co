@@ -383,10 +383,14 @@
 }
 
 .contactLink {
-  @apply --marketplaceLinkStyles;
+  @apply --marketplaceButtonStylesPrimary;
   @apply --marketplaceH5FontStyles;
   margin: 0;
-}
+  padding: 0;
+  display: inline;
+  min-height: 25px;
+  max-width: 75px;
+} 
 
 .sectionDescription {
   padding: 0 24px;

@@ -116,7 +116,11 @@
 }
 
 .contact {
-  @apply --marketplaceLinkStyles;
-  @apply --marketplaceH4FontStyles;
+  @apply --marketplaceButtonStylesPrimary;
+  @apply --marketplaceH5FontStyles;
   margin: 0;
+  padding: 0;
+  display: inline;
+  min-height: 25px;
+  max-width: 75px;
 }
