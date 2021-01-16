@@ -93,7 +93,7 @@ const tabCompleted = (tab, listing) => {
 
   switch (tab) {
     case DESCRIPTION:
-      return !!(description && title && publicData.category);
+      return !!(description && title && publicData.salesRole);
     case FEATURES:
       return !!(publicData && publicData.industryFocus && publicData.salesMedium && publicData.yearsExperiance);
     case POLICY:

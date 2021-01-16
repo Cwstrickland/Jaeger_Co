@@ -6,8 +6,8 @@ import { intlShape, injectIntl, FormattedMessage } from '../../util/reactIntl';
 import classNames from 'classnames';
 import { propTypes } from '../../util/types';
 import { maxLength, required, composeValidators } from '../../util/validators';
-import { Form, Button, FieldTextInput } from '../../components';
-import CustomCategorySelectFieldMaybe from './CustomCategorySelectFieldMaybe';
+import { Form, Button, FieldTextInput, FieldSelect } from '../../components';
+
 
 import css from './EditListingDescriptionForm.module.css';
 
@@ -18,7 +18,7 @@ const EditListingDescriptionFormComponent = props => (
     {...props}
     render={formRenderProps => {
       const {
-        categories,
+        salesRoleOptions,
         className,
         disabled,
         ready,
@@ -57,6 +57,8 @@ const EditListingDescriptionFormComponent = props => (
         id: 'EditListingDescriptionForm.descriptionRequired',
       });
 
+      const RoleMessage = intl.formatMessage({ id: 'EditListingDescriptionForm.roleMessage' });
+
       const { updateListingError, createListingDraftError, showListingsError } = fetchErrors || {};
       const errorMessageUpdateListing = updateListingError ? (
         <p className={css.error}>
@@ -76,6 +78,16 @@ const EditListingDescriptionFormComponent = props => (
           <FormattedMessage id="EditListingDescriptionForm.showListingFailed" />
         </p>
       ) : null;
+
+      const salesRolePlaceholder = intl.formatMessage({
+        id: 'EditListingDescriptionPanel.salesRolePlaceholder',
+      });
+
+      const salesRoleRequired = required(
+        intl.formatMessage({
+          id: 'EditListingDescriptionPanel.salesRoleRequired',
+        })
+      );
 
       const classes = classNames(css.root, className);
       const submitReady = (updated && pristine) || ready;
@@ -109,12 +121,21 @@ const EditListingDescriptionFormComponent = props => (
             validate={composeValidators(required(descriptionRequiredMessage))}
           />
 
-          <CustomCategorySelectFieldMaybe
-            id="category"
-            name="category"
-            categories={categories}
-            intl={intl}
-          />
+
+          <FieldSelect
+            className={css.capacity}
+            name="salesRole"
+            id="salesRole"
+            label={RoleMessage}
+            
+          >
+            <option value="">{salesRolePlaceholder}</option>
+            {salesRoleOptions.map(c => (
+              <option key={c.key} value={c.key}>
+                {c.label}
+              </option>
+            ))}
+          </FieldSelect>
 
           <Button
             className={css.submitButton}
