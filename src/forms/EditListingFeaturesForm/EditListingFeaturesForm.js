@@ -36,6 +36,7 @@ const EditListingFeaturesFormComponent = props => (
         fetchErrors,
         filterConfig,
         industryOptions,
+        experianceOptions,
       } = formRenderProps;
 
       const classes = classNames(rootClassName || css.root, className);
@@ -56,7 +57,8 @@ const EditListingFeaturesFormComponent = props => (
         </p>
       ) : null;
 
-      
+      // custom field const's
+      //industry field
 
       const industryPlaceholder = intl.formatMessage({
         id: 'EditListingFeatureForm.industryPlaceholder',
@@ -69,6 +71,20 @@ const EditListingFeaturesFormComponent = props => (
       );
 
       const FocusMessage = intl.formatMessage({ id: 'EditListingFeaturesForm.FocusMessage' });
+
+      //years of experiance
+
+      const experiancePlaceholder = intl.formatMessage({
+        id: 'EditListingFeatureForm.experiancePlaceholder',
+      });
+
+      const experianceRequired = required(
+        intl.formatMessage({
+          id: 'EditListingFeaturesForm.experianceRequired',
+        })
+      );
+
+      const ExperianceMessage = intl.formatMessage({ id: 'EditListingFeaturesForm.ExperianceMessage' });
 
       // const medium = 'salesMedium';
       // const mediumOptions = findOptionsForSelectFilter( medium, filterConfig);
@@ -94,6 +110,21 @@ const EditListingFeaturesFormComponent = props => (
           >
             <option value="">{industryPlaceholder}</option>
             {industryOptions.map(c => (
+              <option key={c.key} value={c.key}>
+                {c.label}
+              </option>
+            ))}
+          </FieldSelect> 
+
+          <FieldSelect
+            className={css.features}
+            name="yearsExperiance"
+            id="yearsExperiance"
+            label={ExperianceMessage}
+            validate={experianceRequired}
+          >
+            <option value="">{experiancePlaceholder}</option>
+            {experianceOptions.map(c => (
               <option key={c.key} value={c.key}>
                 {c.label}
               </option>

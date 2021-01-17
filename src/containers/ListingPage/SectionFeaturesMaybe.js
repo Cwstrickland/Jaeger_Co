@@ -6,7 +6,7 @@ import { array, shape, string } from 'prop-types';
 import css from './ListingPage.module.css';
 
 const SectionFeaturesMaybe = props => {
-  const { roleOptions, focusOptions, publicData } = props;
+  const { roleOptions, focusOptions, experianceOptions, publicData } = props;
   if (!publicData) {
     return null;
   }
@@ -20,6 +20,11 @@ const SectionFeaturesMaybe = props => {
   const industryOption = focusOptions.find(
     option => option.key === industry
   );
+
+  const experiance = publicData.yearsExperiance;
+  const experianceOption = experianceOptions.find(
+    option => option.key === experiance
+  );
   
   return  (
     <div className={css.sectionFeatures}>
@@ -29,6 +34,7 @@ const SectionFeaturesMaybe = props => {
 
       <p ><strong>Sales Role:</strong> {salesRoleOption.label}</p>
       <p ><strong>Industry Focus:</strong> {industryOption.label}</p> 
+      <p ><strong>Years of Experiance:</strong> {experianceOption.label}</p>
     </div>
   );
 };
@@ -37,7 +43,8 @@ SectionFeaturesMaybe.propTypes = {
   options: array.isRequired,
   publicData: shape({
     salesRole: string,
-    industryFocus: string,
+    industry: string,
+    experiance: string,
   }).isRequired,
 };
 

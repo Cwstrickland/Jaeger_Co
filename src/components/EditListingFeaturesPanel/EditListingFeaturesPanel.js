@@ -47,11 +47,16 @@ const EditListingFeaturesPanel = props => {
     config.custom.filters
   );
 
+  const experianceOptions = findOptionsForSelectFilter(
+    'yearsExperiance',
+    config.custom.filters
+  );
+
 
   // const industryFocus = publicData && publicData.industryFocus;
   // const salesMedium = publicData && publicData.salesMedium;
   // const yearsExperiance = publicData && publicData.yearsExperiance;
-   const initialValues = { industryOptions };
+   const initialValues = { industryFocus: publicData.industryFocus, yearsExperiance: publicData.yearsExperiance };
 
   return (
     <div className={classes}>
@@ -59,12 +64,12 @@ const EditListingFeaturesPanel = props => {
       <EditListingFeaturesForm
         className={css.form}
         name={FEATURES_NAME}
-        initialValues={{ industryFocus: publicData.industryFocus }}
+        initialValues={initialValues}
         onSubmit={values => {
-          const { industryFocus } = values;
+          const { industryFocus, yearsExperiance } = values;
 
           const updatedValues = {
-            publicData: { industryFocus},
+            publicData: { industryFocus, yearsExperiance},
           };
           onSubmit(updatedValues);
         }}
@@ -76,6 +81,7 @@ const EditListingFeaturesPanel = props => {
         updateInProgress={updateInProgress}
         fetchErrors={errors}
         industryOptions={industryOptions}
+        experianceOptions={experianceOptions}
       />
     </div>
   );
