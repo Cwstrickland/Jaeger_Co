@@ -21,7 +21,7 @@ const SectionFeaturesMaybe = props => {
       <h2 className={css.featuresTitle}>
         <FormattedMessage id="ListingPage.featuresTitle" />
       </h2>
-      <p >{salesRoleOption.label}</p>
+      <p ><strong>Sales Role:</strong> {salesRoleOption.label}</p>
     </div>
   ) : null;
 };
