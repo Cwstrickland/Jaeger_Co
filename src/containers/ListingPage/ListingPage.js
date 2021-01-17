@@ -382,6 +382,7 @@ export class ListingPageComponent extends Component {
     );
 
     const salesRoleOptions = findOptionsForSelectFilter('salesRole', filterConfig);
+    const industryOptions = findOptionsForSelectFilter('industryFocus', filterConfig);
     const categoryOptions = findOptionsForSelectFilter('category', filterConfig);
     const category =
       publicData && publicData.category ? (
@@ -439,7 +440,11 @@ export class ListingPageComponent extends Component {
                     showContactUser={showContactUser}
                     onContactUser={this.onContactUser}
                   />
-                  <SectionFeaturesMaybe options={salesRoleOptions} publicData={publicData} />
+                  <SectionFeaturesMaybe 
+                    roleOptions={salesRoleOptions} 
+                    publicData={publicData}
+                    focusOptions={industryOptions} 
+                  />
                   <SectionDescriptionMaybe description={description} />
                   
                   <SectionRulesMaybe publicData={publicData} />

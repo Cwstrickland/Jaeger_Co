@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { FormattedMessage } from '../../util/reactIntl';
-
+import { findOptionsForSelectFilter } from '../../util/search';
 import { LISTING_STATE_DRAFT } from '../../util/types';
 import { ensureListing } from '../../util/data';
 import { EditListingFeaturesForm } from '../../forms';
 import { ListingLink } from '../../components';
+import config from '../../config.js';
 
 import css from './EditListingFeaturesPanel.module.css';
 
@@ -41,10 +42,16 @@ const EditListingFeaturesPanel = props => {
     <FormattedMessage id="EditListingFeaturesPanel.createListingTitle" />
   );
 
-  const industryFocus = publicData && publicData.industryFocus;
-  const salesMedium = publicData && publicData.salesMedium;
-  const yearsExperiance = publicData && publicData.yearsExperiance;
-  const initialValues = { industryFocus, salesMedium, yearsExperiance };
+  const industryOptions = findOptionsForSelectFilter(
+    'industryFocus',
+    config.custom.filters
+  );
+
+
+  // const industryFocus = publicData && publicData.industryFocus;
+  // const salesMedium = publicData && publicData.salesMedium;
+  // const yearsExperiance = publicData && publicData.yearsExperiance;
+   const initialValues = { industryOptions };
 
   return (
     <div className={classes}>
@@ -52,12 +59,12 @@ const EditListingFeaturesPanel = props => {
       <EditListingFeaturesForm
         className={css.form}
         name={FEATURES_NAME}
-        initialValues={initialValues}
+        initialValues={{ industryFocus: publicData.industryFocus }}
         onSubmit={values => {
-          const { industryFocus = [], yearsExperiance = [], salesMedium = [] } = values;
+          const { industryFocus } = values;
 
           const updatedValues = {
-            publicData: { industryFocus, salesMedium, yearsExperiance},
+            publicData: { industryFocus},
           };
           onSubmit(updatedValues);
         }}
@@ -68,6 +75,7 @@ const EditListingFeaturesPanel = props => {
         updated={panelUpdated}
         updateInProgress={updateInProgress}
         fetchErrors={errors}
+        industryOptions={industryOptions}
       />
     </div>
   );

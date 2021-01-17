@@ -1,11 +1,14 @@
 import React from 'react';
-import { bool, func, shape, string } from 'prop-types';
+import { bool, func, shape, string, arrayOf } from 'prop-types';
 import classNames from 'classnames';
 import { Form as FinalForm } from 'react-final-form';
 import arrayMutators from 'final-form-arrays';
-import { FormattedMessage } from '../../util/reactIntl';
+import { compose } from 'redux';
+import { intlShape,
+  injectIntl, FormattedMessage } from '../../util/reactIntl';
 import { findOptionsForSelectFilter } from '../../util/search';
 import { propTypes } from '../../util/types';
+import { required } from '../../util/validators';
 import config from '../../config';
 import { Button, FieldCheckboxGroup, FieldSelect , Form } from '../../components';
 
@@ -22,13 +25,17 @@ const EditListingFeaturesFormComponent = props => (
         rootClassName,
         className,
         name,
+        intl,
+        invalid,
         handleSubmit,
         pristine,
         saveActionMsg,
         updated,
+        updateError,
         updateInProgress,
         fetchErrors,
         filterConfig,
+        industryOptions,
       } = formRenderProps;
 
       const classes = classNames(rootClassName || css.root, className);
@@ -49,14 +56,28 @@ const EditListingFeaturesFormComponent = props => (
         </p>
       ) : null;
 
-      const medium = 'salesMedium';
-      const mediumOptions = findOptionsForSelectFilter( medium, filterConfig);
+      
 
-      const experiance = 'yearsExperiance';
-      const experianceOptions = findOptionsForSelectFilter( experiance, filterConfig);
+      const industryPlaceholder = intl.formatMessage({
+        id: 'EditListingFeatureForm.industryPlaceholder',
+      });
 
-      const focusKey = 'industryFocus';
-      const focusOptions = findOptionsForSelectFilter( focusKey, filterConfig);
+      const industryRequired = required(
+        intl.formatMessage({
+          id: 'EditListingFeaturesForm.industryRequired',
+        })
+      );
+
+      const FocusMessage = intl.formatMessage({ id: 'EditListingFeaturesForm.FocusMessage' });
+
+      // const medium = 'salesMedium';
+      // const mediumOptions = findOptionsForSelectFilter( medium, filterConfig);
+
+      // const experiance = 'yearsExperiance';
+      // const experianceOptions = findOptionsForSelectFilter( experiance, filterConfig);
+
+      // const focusKey = 'industryFocus';
+      // const focusOptions = findOptionsForSelectFilter( focusKey, filterConfig);
 
       
       return (
@@ -64,14 +85,22 @@ const EditListingFeaturesFormComponent = props => (
           {errorMessage}
           {errorMessageShowListing}
 
-          <FieldSelect className={css.features} id={focusKey} name={focusKey} label={"Industry Focus"}>
-            {focusOptions.map(o => (
-              <option key={o.key} value={o.key}> 
-                {o.label}
+          <FieldSelect
+            className={css.features}
+            name="industryFocus"
+            id="industryFocus"
+            label={FocusMessage}
+            validate={industryRequired}
+          >
+            <option value="">{industryPlaceholder}</option>
+            {industryOptions.map(c => (
+              <option key={c.key} value={c.key}>
+                {c.label}
               </option>
             ))}
-          </FieldSelect>
-          <FieldSelect className={css.features} id={experiance} name={experiance} label={"Years of Experiance"}>
+          </FieldSelect> 
+          
+          {/* <FieldSelect className={css.features} id={experiance} name={experiance} label={"Years of Experiance"}>
             {experianceOptions.map(l => (
               <option key={l.key} value={l.key}> 
                 {l.label}
@@ -79,7 +108,7 @@ const EditListingFeaturesFormComponent = props => (
             ))}
           </FieldSelect>
 
-          <FieldCheckboxGroup className={css.features} id={medium} name={medium} options={mediumOptions} label={"Sales Channels"}/>
+          <FieldCheckboxGroup className={css.features} id={medium} name={medium} options={mediumOptions} label={"Sales Channels"}/> */}
           
           <Button
             className={css.submitButton}
@@ -106,6 +135,7 @@ EditListingFeaturesFormComponent.defaultProps = {
 EditListingFeaturesFormComponent.propTypes = {
   rootClassName: string,
   className: string,
+  intl: intlShape.isRequired,
   name: string.isRequired,
   onSubmit: func.isRequired,
   saveActionMsg: string.isRequired,
@@ -118,8 +148,14 @@ EditListingFeaturesFormComponent.propTypes = {
     updateListingError: propTypes.error,
   }),
   filterConfig: propTypes.filterConfig,
+  industryOptions: arrayOf(
+    shape({
+      key: string.isRequired,
+      label: string.isRequired,
+    })
+  ).isRequired,
 };
 
 const EditListingFeaturesForm = EditListingFeaturesFormComponent;
 
-export default EditListingFeaturesForm;
+export default compose(injectIntl)(EditListingFeaturesForm);
