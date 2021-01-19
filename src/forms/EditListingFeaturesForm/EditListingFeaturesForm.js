@@ -37,6 +37,7 @@ const EditListingFeaturesFormComponent = props => (
         filterConfig,
         industryOptions,
         experianceOptions,
+        mediumOptions,
       } = formRenderProps;
 
       const classes = classNames(rootClassName || css.root, className);
@@ -86,6 +87,17 @@ const EditListingFeaturesFormComponent = props => (
 
       const ExperianceMessage = intl.formatMessage({ id: 'EditListingFeaturesForm.ExperianceMessage' });
 
+      // sales medium
+
+
+      const mediumRequired = required(
+        intl.formatMessage({
+          id: 'EditListingFeaturesForm.mediumRequired',
+        })
+      );
+
+      const MediumMessage = intl.formatMessage({ id: 'EditListingFeaturesForm.MediumMessage' });
+
       // const medium = 'salesMedium';
       // const mediumOptions = findOptionsForSelectFilter( medium, filterConfig);
 
@@ -130,16 +142,14 @@ const EditListingFeaturesFormComponent = props => (
               </option>
             ))}
           </FieldSelect> 
-          
-          {/* <FieldSelect className={css.features} id={experiance} name={experiance} label={"Years of Experiance"}>
-            {experianceOptions.map(l => (
-              <option key={l.key} value={l.key}> 
-                {l.label}
-              </option>
-            ))}
-          </FieldSelect>
 
-          <FieldCheckboxGroup className={css.features} id={medium} name={medium} options={mediumOptions} label={"Sales Channels"}/> */}
+          <FieldCheckboxGroup 
+            className={css.features} 
+            id="salesMedium" 
+            name="salesMedium" 
+            options={mediumOptions} 
+            label={MediumMessage}
+          />
           
           <Button
             className={css.submitButton}

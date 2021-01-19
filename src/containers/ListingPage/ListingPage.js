@@ -384,6 +384,7 @@ export class ListingPageComponent extends Component {
     const salesRoleOptions = findOptionsForSelectFilter('salesRole', filterConfig);
     const industryOptions = findOptionsForSelectFilter('industryFocus', filterConfig);
     const experianceOptions = findOptionsForSelectFilter('yearsExperiance', filterConfig);
+    const mediumOptions = findOptionsForSelectFilter('salesMedium', filterConfig);
     const categoryOptions = findOptionsForSelectFilter('category', filterConfig);
     const category =
       publicData && publicData.category ? (
@@ -446,6 +447,7 @@ export class ListingPageComponent extends Component {
                     publicData={publicData}
                     focusOptions={industryOptions} 
                     experianceOptions={experianceOptions}
+                    mediumOptions={mediumOptions}
                   />
                   <SectionDescriptionMaybe description={description} />
                   

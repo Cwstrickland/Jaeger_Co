@@ -195,6 +195,8 @@
   "EditListingFeaturesForm.ExperianceMessage": "How many years of experiance do you have?",
   "EditListingFeaturesForm.experianceRequired": "Years of experiance field is required.",
   "EditListingFeatureForm.experiancePlaceholder": "Select how many years here.",
+  "EditListingFeaturesForm.MediumMessage": "What is your preferred outreach medium? (select multiple)",
+  "EditListingFeaturesForm.mediumRequired": "Sales medium is a required field.",
   "EditListingFeaturesPanel.createListingTitle": "Specific Sales Experiance",
   "EditListingFeaturesPanel.title": "Tell us about your experiance.",
   "EditListingLocationForm.address": "Address",
