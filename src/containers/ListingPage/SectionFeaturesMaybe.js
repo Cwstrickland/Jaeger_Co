@@ -38,10 +38,10 @@ const SectionFeaturesMaybe = props => {
         <FormattedMessage id="ListingPage.featuresTitle" />
       </h2>
 
-      <p ><strong>Sales Role:</strong> {salesRoleOption.label}</p>
+      {/* <p ><strong>Sales Role:</strong> {salesRoleOption.label}</p>
       <p ><strong>Industry Focus:</strong> {industryOption.label}</p> 
       <p ><strong>Years of Experiance:</strong> {experianceOption.label}</p>
-      <p ><strong>Sales Medium:</strong> {mediumOption.label}</p>
+      <p ><strong>Sales Medium:</strong> {mediumOption.label}</p> */}
     </div>
   );
 };
