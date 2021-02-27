@@ -6,7 +6,7 @@ const auth = require('basic-auth');
  */
 exports.basicAuth = (username, password) => {
   if (!username || !password) {
-    throw new Error('Missing required username and password for basic authentication.');
+    throw new Error('Missing required username and/or password.');
   }
 
   return (req, res, next) => {
@@ -18,7 +18,7 @@ exports.basicAuth = (username, password) => {
       res
         .set({ 'WWW-Authenticate': 'Basic realm="Authentication required"' })
         .status(401)
-        .end("I'm afraid I cannot let you do that.");
+        .end("Whoa, there buddy. Not so fast...");
     }
   };
 };
