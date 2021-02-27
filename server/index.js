@@ -131,20 +131,20 @@ app.use('/static', express.static(path.join(buildPath, 'static')));
 app.use('/robots.txt', express.static(path.join(buildPath, 'robots.txt')));
 app.use(cookieParser());
 
-// Use basic authentication when not in dev mode. This is
+// Use basic authentication when available. This is
 // intentionally after the static middleware to skip basic auth for
 // static resources.
-if (!dev) {
-  const USERNAME = process.env.BASIC_AUTH_USERNAME;
-  const PASSWORD = process.env.BASIC_AUTH_PASSWORD;
-  const hasUsername = typeof USERNAME === 'string' && USERNAME.length > 0;
-  const hasPassword = typeof PASSWORD === 'string' && PASSWORD.length > 0;
 
-  // If BASIC_AUTH_USERNAME and BASIC_AUTH_PASSWORD have been set - let's use them
-  if (hasUsername && hasPassword) {
-    app.use(auth.basicAuth(USERNAME, PASSWORD));
-  }
+const USERNAME = process.env.BASIC_AUTH_USERNAME;
+const PASSWORD = process.env.BASIC_AUTH_PASSWORD;
+const hasUsername = typeof USERNAME === 'string' && USERNAME.length > 0;
+const hasPassword = typeof PASSWORD === 'string' && PASSWORD.length > 0;
+
+// If BASIC_AUTH_USERNAME and BASIC_AUTH_PASSWORD have been set - let's use them
+if (hasUsername && hasPassword) {
+  app.use(auth.basicAuth(USERNAME, PASSWORD));
 }
+
 
 // Initialize Passport.js  (http://www.passportjs.org/)
 // Passport is authentication middleware for Node.js
