@@ -11,11 +11,11 @@ const SectionFeaturesMaybe = props => {
     return null;
   }
 
-  const salesRole = publicData.salesRole;
+  const salesRole = publicData.category;
   const salesRoleOption = roleOptions.find(
     option => option.key === salesRole
   );
-
+  
   const industry = publicData.industryFocus;
   const industryOption = focusOptions.find(
     option => option.key === industry
@@ -25,11 +25,6 @@ const SectionFeaturesMaybe = props => {
   const experianceOption = experianceOptions.find(
     option => option.key === experiance
   );
-
-  const medium = publicData.salesMedium;
-  const mediumOption = mediumOptions.find(
-    option => option.key === medium
-  );
   
   
   return  (
@@ -38,10 +33,10 @@ const SectionFeaturesMaybe = props => {
         <FormattedMessage id="ListingPage.featuresTitle" />
       </h2>
 
-      {/* <p ><strong>Sales Role:</strong> {salesRoleOption.label}</p>
+      
+      <p ><strong>Sales Role:</strong> {salesRoleOption.label}</p>
       <p ><strong>Industry Focus:</strong> {industryOption.label}</p> 
       <p ><strong>Years of Experiance:</strong> {experianceOption.label}</p>
-      <p ><strong>Sales Medium:</strong> {mediumOption.label}</p> */}
     </div>
   );
 };
