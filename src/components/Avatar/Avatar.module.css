@@ -39,6 +39,7 @@
   width: 100%;
   height: 100%;
   border-radius: inherit;
+  border: var(--marketplaceColor) 2px outset;
 }
 
 /* Medium Avatar */

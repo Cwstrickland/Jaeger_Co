@@ -500,7 +500,7 @@
     display: block;
     width: 100%;
     margin: 0;
-    padding: 5px 0 5px 0;
+    padding: 5px 0 5px 5px;
 
     /* Borders */
     border: none;
@@ -524,7 +524,7 @@
     }
 
     @media (--viewportMedium) {
-      padding: 4px 0 2px 0;
+      padding: 4px 0 2px 5px;
     }
   }
 
