@@ -17,9 +17,7 @@ import {
 
 import css from './Footer.module.css';
 
-const preventDefault = e => {
-  e.preventDefault();
-};
+
 
 const renderSocialMediaLinks = intl => {
   const { siteFacebookPage, siteInstagramPage, siteTwitterHandle, siteLinkedInPage } = config;
@@ -74,7 +72,7 @@ const renderSocialMediaLinks = intl => {
   return [linkedInLink, twitterLink, fbLink, instragramLink ].filter(v => v != null);
 };
 
-const feedbackLink = "mailto:email.com?subject=subject&message=message";
+const feedbackLink = "mailto:feedback@thejaegerco.com?subject=Feedback: The Jaeger Co.";
 
 const Footer = props => {
   const { rootClassName, className, intl } = props;
@@ -236,10 +234,7 @@ const Footer = props => {
             <div className={css.extraLinks}>
               <div className={css.someLinks}>{socialMediaLinks}</div>
               <div className={css.feedBackWrapper}>
-                <InlineTextButton className={css.feedBackBtn} href={feedbackLink}>
-                  <FormattedMessage id="Footer.feedback" />
-                </InlineTextButton>
-                <a className={css.feedBackBtn} href={feedbackLink} onClick={preventDefault}>
+                <a className={css.feedBackBtn} href={feedbackLink} >
                   <FormattedMessage id="Footer.feedback" />
                 </a>
               </div>
