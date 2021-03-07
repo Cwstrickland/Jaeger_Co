@@ -8,6 +8,7 @@ import {
   IconSocialMediaFacebook,
   IconSocialMediaInstagram,
   IconSocialMediaTwitter,
+  IconSocialMediaLinkedIn,
   Logo,
   ExternalLink,
   NamedLink,
@@ -16,13 +17,25 @@ import {
 import css from './Footer.module.css';
 
 const renderSocialMediaLinks = intl => {
-  const { siteFacebookPage, siteInstagramPage, siteTwitterHandle } = config;
+  const { siteFacebookPage, siteInstagramPage, siteTwitterHandle, siteLinkedInPage } = config;
   const siteTwitterPage = twitterPageURL(siteTwitterHandle);
 
   const goToFb = intl.formatMessage({ id: 'Footer.goToFacebook' });
   const goToInsta = intl.formatMessage({ id: 'Footer.goToInstagram' });
   const goToTwitter = intl.formatMessage({ id: 'Footer.goToTwitter' });
+  const goToLinked = intl.formatMessage({ id: 'Footer.goToLinkedIn' });
 
+  const linkedInLink = siteLinkedInPage ? (
+    <ExternalLink
+      key="linkToLinkedIn"
+      href={siteLinkedInPage}
+      className={css.icon}
+      title={goToLinked}
+    >
+      <IconSocialMediaLinkedIn />
+    </ExternalLink>
+  ) : null;
+  
   const fbLink = siteFacebookPage ? (
     <ExternalLink key="linkToFacebook" href={siteFacebookPage} className={css.icon} title={goToFb}>
       <IconSocialMediaFacebook />
@@ -50,7 +63,10 @@ const renderSocialMediaLinks = intl => {
       <IconSocialMediaInstagram />
     </ExternalLink>
   ) : null;
-  return [fbLink, twitterLink, instragramLink].filter(v => v != null);
+
+  
+
+  return [linkedInLink, twitterLink, fbLink, instragramLink ].filter(v => v != null);
 };
 
 const Footer = props => {
