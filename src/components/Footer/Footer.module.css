@@ -239,6 +239,15 @@
   }
 }
 
+.feedBackBtn {
+  @apply --marketplaceButtonStylesPrimary;
+  @apply --marketplaceH5FontStyles;
+  margin: 10px 0;
+  padding: 5px;
+  min-height: 25px;
+  max-width: 100px;
+}
+
 .legalMatters {
   /* Get extra space from parent element (which is using flexbox) */
   flex-grow: 1;
