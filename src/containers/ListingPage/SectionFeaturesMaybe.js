@@ -11,20 +11,20 @@ const SectionFeaturesMaybe = props => {
     return null;
   }
 
-  const salesRole = publicData.category;
-  const salesRoleOption = roleOptions.find(
-    option => option.key === salesRole
-  );
+  // const salesRole = publicData.category;
+  // const salesRoleOption = roleOptions.find(
+  //   option => option.key === salesRole
+  // );
   
-  const industry = publicData.industryFocus;
-  const industryOption = focusOptions.find(
-    option => option.key === industry
-  );
+  // const industry = publicData.industryFocus;
+  // const industryOption = focusOptions.find(
+  //   option => option.key === industry
+  // );
 
-  const experiance = publicData.yearsExperiance;
-  const experianceOption = experianceOptions.find(
-    option => option.key === experiance
-  );
+  // const experiance = publicData.yearsExperiance;
+  // const experianceOption = experianceOptions.find(
+  //   option => option.key === experiance
+  // );
   
   
   return  (
@@ -34,9 +34,9 @@ const SectionFeaturesMaybe = props => {
       </h2>
 
       
-      <p ><strong>Sales Role:</strong> {salesRoleOption.label}</p>
+      {/* <p ><strong>Sales Role:</strong> {salesRoleOption.label}</p>
       <p ><strong>Industry Focus:</strong> {industryOption.label}</p> 
-      <p ><strong>Years of Experiance:</strong> {experianceOption.label}</p>
+      <p ><strong>Years of Experiance:</strong> {experianceOption.label}</p> */}
     </div>
   );
 };
