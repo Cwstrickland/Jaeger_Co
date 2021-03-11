@@ -11,7 +11,7 @@ import {
 import css from './Jaegers.module.css';
 import image1 from './Jaegerco_phonecall.png';
 import image2 from './Jaegerco_crosswalk.png';
-import image3 from './Jaegerco_hand_up_guy.jpg';
+import image3 from './Jaegerco_hand_up_guy.png';
 
 const Jaegers = () => {
    return (

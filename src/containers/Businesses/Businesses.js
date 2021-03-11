@@ -8,9 +8,9 @@ import {
    Footer,
 } from '../../components';
 
-import image from './sales-meeting.jpg'; 
-import image2 from './business-2.jpg';
-import image3 from './guy-on-tablet.jpg';
+import image from './Jaegerco_sales-meeting.png'; 
+import image2 from './Jaegerco_business_collaboration.png';
+import image3 from './Jaegerco_guy-on-tablet.png';
 
 import css from './Businesses.module.css';
  
