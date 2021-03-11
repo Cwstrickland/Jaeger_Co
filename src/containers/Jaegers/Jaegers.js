@@ -9,9 +9,9 @@ import {
 } from '../../components';
 
 import css from './Jaegers.module.css';
-import image1 from './railing_guy.jpg';
-import image2 from './crosswalk.jpg';
-import image3 from './hand_up_guy.jpg';
+import image1 from './Jaegerco_phonecall.png';
+import image2 from './Jaegerco_crosswalk.png';
+import image3 from './Jaegerco_hand_up_guy.jpg';
 
 const Jaegers = () => {
    return (

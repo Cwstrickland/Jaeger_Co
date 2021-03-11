@@ -13,7 +13,7 @@ import {
 
 import css from './AboutPage.module.css';
 import image from './coffee_guy.jpg';
-import image2 from './chessboard.jpg';
+import image2 from './Jaegerco_chessboard.png';
 
 const AboutPage = () => {
   const { siteTwitterHandle, siteFacebookPage } = config;
