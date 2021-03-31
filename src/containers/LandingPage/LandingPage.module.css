@@ -90,7 +90,7 @@
 }
 
 /* A bar on top of light sections */
-.section:nth-of-type(2n) .sectionContent::before {
+.section:nth-of-type(1n) .sectionContent::before {
   background: var(--marketplaceColor);
   content: '';
   display: block;
