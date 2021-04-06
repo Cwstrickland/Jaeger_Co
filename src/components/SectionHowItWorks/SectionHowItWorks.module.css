@@ -1,4 +1,7 @@
 @import '../../styles/propertySets.css';
+:root {
+  background-color: var(--marketplaceColorDark);
+}
 
 .title {
   @apply --marketplaceH1FontStyles;
@@ -39,8 +42,13 @@
 
 .createListingLink {
   margin-top: 18px;
+  color: var(--marketplaceColorLight);
 
   @media (--viewportMedium) {
     margin-top: 24px;
   }
+}
+
+#SectionHowItWorks.titleLineTwo {
+  font-size: 10px;
 }

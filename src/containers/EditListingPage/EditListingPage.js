@@ -8,6 +8,7 @@ import { types as sdkTypes } from '../../util/sdkLoader';
 import {
   LISTING_PAGE_PARAM_TYPE_DRAFT,
   LISTING_PAGE_PARAM_TYPE_NEW,
+  LISTING_PAGE_PARAM_TYPE_EDIT,
   LISTING_PAGE_PARAM_TYPES,
   LISTING_PAGE_PENDING_APPROVAL_VARIANT,
   createSlug,
@@ -56,6 +57,8 @@ const { UUID } = sdkTypes;
 export const EditListingPageComponent = props => {
   const {
     currentUser,
+    currentUserListing,
+    currentUserListingFetched,
     createStripeAccountError,
     fetchInProgress,
     fetchStripeAccountError,
@@ -82,6 +85,7 @@ export const EditListingPageComponent = props => {
     page,
     params,
     scrollingDisabled,
+    allowOnlyOneListing,
     stripeAccountFetched,
     stripeAccount,
     updateStripeAccountError,
@@ -128,6 +132,19 @@ export const EditListingPageComponent = props => {
         };
 
     return <NamedRedirect {...redirectProps} />;
+      } else if (allowOnlyOneListing && isNewURI && currentUserListingFetched && currentUserListing) {
+        // If we allow only one listing per provider, we need to redirect to correct listing.
+        return (
+          <NamedRedirect
+            name="EditListingPage"
+            params={{
+              id: currentUserListing.id.uuid,
+              slug: createSlug(currentUserListing.attributes.title),
+              type: LISTING_PAGE_PARAM_TYPE_EDIT,
+              tab: 'description',
+            }}
+          />
+        );
   } else if (showForm) {
     const {
       createListingDraftError = null,
@@ -247,6 +264,8 @@ EditListingPageComponent.defaultProps = {
   listingDraft: null,
   notificationCount: 0,
   sendVerificationEmailError: null,
+  currentUserListing: null,
+  currentUserListingFetched: false,
 };
 
 EditListingPageComponent.propTypes = {
@@ -258,6 +277,8 @@ EditListingPageComponent.propTypes = {
   currentUser: propTypes.currentUser,
   fetchInProgress: bool.isRequired,
   getOwnListing: func.isRequired,
+  currentUserListing: propTypes.ownListing,
+  currentUserListingFetched: bool,
   onFetchAvailabilityExceptions: func.isRequired,
   onCreateAvailabilityException: func.isRequired,
   onDeleteAvailabilityException: func.isRequired,
@@ -307,7 +328,7 @@ const mapStateToProps = state => {
     stripeAccountFetched,
   } = state.stripeConnectAccount;
 
-  const { currentUser } = state.user;
+  const { currentUser, currentUserListing, currentUserListingFetched } = state.user;
 
   const fetchInProgress = createStripeAccountInProgress;
 
@@ -325,6 +346,8 @@ const mapStateToProps = state => {
     stripeAccount,
     stripeAccountFetched,
     currentUser,
+    currentUserListing,
+    currentUserListingFetched,
     fetchInProgress,
     getOwnListing,
     page,
