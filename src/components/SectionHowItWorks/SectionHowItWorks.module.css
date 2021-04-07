@@ -1,7 +1,5 @@
 @import '../../styles/propertySets.css';
-:root {
-  background-color: var(--marketplaceColorDark);
-}
+
 
 .title {
   @apply --marketplaceH1FontStyles;

@@ -8,9 +8,9 @@ import { NamedLink } from '../../components';
 
 import css from './SectionIntro.module.css';
 
-import JaegerImage from './images/Jaegerco_sales-lady.png';
-import businessImage from './images/jaegerco_business-front.png';
-import aboutImage from './images/Jaegerco_guy-at-computer.png';
+import JaegerImage from './images/jaeger_icon.png';
+import businessImage from './images/business_icon.png';
+import aboutImage from './images/About_us_icon.png';
 
 class LocationImage extends Component {
   render() {

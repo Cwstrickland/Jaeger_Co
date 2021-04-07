@@ -58,7 +58,7 @@
 
 /* Every other section has a light background */
 .section:nth-of-type(2n) {
-  background-color: var(--marketplaceColorDark);
+  background-color: var(--marketplaceColorLight);
   @media (--viewportMedium) {
     border-radius: 4px;
   }
