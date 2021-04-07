@@ -62,7 +62,7 @@ export const LandingPageComponent = props => {
           <div className={css.heroContainer}>
             <SectionHero className={css.hero} history={history} location={location} />
           </div>
-          <ul className={css.sections}>
+          <ul className={css.section}>
             <li className={css.section}>
               <div className={css.sectionContent}>
                 <SectionIntro />
