@@ -1,9 +1,9 @@
 {
-  "name": "Saunatime",
-  "short_name": "Saunatime",
+  "name": "Jaeger Co.",
+  "short_name": "JaegerCo",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#C0392B",
+  "theme_color": "#923032",
   "background_color": "#FFFFFF",
   "icons": [
     {
