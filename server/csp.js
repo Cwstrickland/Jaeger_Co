@@ -98,7 +98,7 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
   const customDirectives = {
     // Example: Add custom directive override
     // imgSrc: exampleImgSrc,
-    scriptSrc: extendedScriptSrc
+    scriptSrc: [extendedScriptSrc, 'redditstatic.com'],
   };
 
   // ================ END CUSTOM CSP URLs ================ //
