@@ -92,12 +92,13 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
   // https://content-security-policy.com/
 
   // Example: extend default img directive with custom domain
-  // const { imgSrc = [self] } = defaultDirectives;
-  // const exampleImgSrc = imgSrc.concat('my-custom-domain.example.com');
+  const { scriptSrc } = defaultDirectives;
+  const extendedScriptSrc = scriptScr.concat('https://www.googletagmanager.com');
 
   const customDirectives = {
     // Example: Add custom directive override
     // imgSrc: exampleImgSrc,
+    scriptSrc: extendedScriptSrc
   };
 
   // ================ END CUSTOM CSP URLs ================ //
