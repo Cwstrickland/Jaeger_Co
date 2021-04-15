@@ -93,7 +93,7 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
 
   // Example: extend default img directive with custom domain
   const { scriptSrc } = defaultDirectives;
-  const extendedScriptSrc = scriptScr.concat('https://www.googletagmanager.com');
+  const extendedScriptSrc = scriptSrc.concat('https://www.googletagmanager.com');
 
   const customDirectives = {
     // Example: Add custom directive override
