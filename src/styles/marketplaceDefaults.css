@@ -32,6 +32,7 @@
   --attentionColorLight: #fff7f0;
   --bannedColorLight: var(--marketplaceColorLight);
   --bannedColorDark: var(--marketplaceColor);
+  --jaegerGray: #646464;
 
   --matterColorDark: #000000;
   --matterColor: #4a4a4a;
@@ -224,6 +225,7 @@ li {
 p,
 pre {
   @apply --marketplaceBodyFontStyles;
+  color: var(--jaegerGray);
 }
 
 /* ================ Normalisations ================ */
@@ -244,6 +246,7 @@ legend,
 label {
   @apply --marketplaceH5FontStyles;
   font-weight: var(--fontWeightSemiBold);
+  font-size: 18px;
   display: block;
   margin-top: 0;
   margin-bottom: 0;

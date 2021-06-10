@@ -9,6 +9,15 @@
 
 .form {
   flex-grow: 1;
+  
+  .proTip {
+    color: red;
+  }
+  
+}
+
+.proTip {
+  color: red;
 }
 
 .title {

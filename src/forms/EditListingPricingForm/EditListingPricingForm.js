@@ -99,6 +99,10 @@ export const EditListingPricingFormComponent = props => (
             currencyConfig={config.currencyConfig}
             validate={priceValidators}
           />
+          <p className={css.proTip}>
+            <FormattedMessage id="EditListingPricingForm.priceSuggestion"/>
+          </p>
+          
 
           <Button
             className={css.submitButton}
