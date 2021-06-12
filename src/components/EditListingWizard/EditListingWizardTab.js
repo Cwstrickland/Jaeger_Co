@@ -17,6 +17,7 @@ import {
   EditListingPhotosPanel,
   EditListingPoliciesPanel,
   EditListingPricingPanel,
+  EditListingPaymentPanel,
 } from '../../components';
 
 import css from './EditListingWizard.module.css';
@@ -28,6 +29,7 @@ export const POLICY = 'policy';
 export const LOCATION = 'location';
 export const PRICING = 'pricing';
 export const PHOTOS = 'photos';
+export const PAYMENT = 'payment';
 
 // EditListingWizardTab component supports these tabs
 export const SUPPORTED_TABS = [
@@ -38,6 +40,7 @@ export const SUPPORTED_TABS = [
   PRICING,
   AVAILABILITY,
   PHOTOS,
+  PAYMENT,
 ];
 
 const pathParamsToNextTab = (params, tab, marketplaceTabs) => {
@@ -258,6 +261,20 @@ const EditListingWizardTab = props => {
             onCompleteEditListingWizardTab(tab, values);
           }}
           onUpdateImageOrder={onUpdateImageOrder}
+        />
+      );
+    }
+    case PAYMENT: {
+      const submitButtonTranslationKey = isNewListingFlow
+        ? 'EditListingWizard.saveNewPayment'
+        : 'EditListingWizard.saveEditPayment';
+      return (
+        <EditListingPaymentPanel
+          {...panelProps(PAYMENT)}
+          submitButtonText={intl.formatMessage({ id: submitButtonTranslationKey })}
+          onSubmit={values => {
+            onCompleteEditListingWizardTab(tab, values);
+          }}
         />
       );
     }
