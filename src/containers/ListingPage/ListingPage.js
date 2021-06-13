@@ -442,13 +442,7 @@ export class ListingPageComponent extends Component {
                     showContactUser={showContactUser}
                     onContactUser={this.onContactUser}
                   />
-                  <SectionFeaturesMaybe 
-                    roleOptions={salesRoleOptions} 
-                    publicData={publicData}
-                    focusOptions={industryOptions} 
-                    experianceOptions={experianceOptions}
-                    mediumOptions={mediumOptions}
-                  />
+                  
                   <SectionDescriptionMaybe description={description} />
                   
                   <SectionRulesMaybe publicData={publicData} />

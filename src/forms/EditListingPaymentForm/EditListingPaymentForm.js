@@ -43,14 +43,14 @@ export const EditListingPaymentFormComponent = props => (
       return (
         <Form className={classes} onSubmit={handleSubmit}>
           
-          <h2>Payment setup</h2>
-          <p>Please have your account and routing number ready to setup your payout. This can be changes later if needed.</p>
+          <h2>What you will need for setup.</h2>
+          <p>Please have your account and routing number ready to setup your payout. This can be changed later if needed.</p>
 
           <h2>Verification</h2>
-          <p>This is the most important step because it’s how we make sure all the Jaegers and businesses are legitimate. Click the get verified button after entering your payout preferences. You will make a quick stop on our page with Stripe for your financial verification. Be sure to complete all steps in this process to complete your signup. </p>
+          <p>This is the most important step because it’s how we make sure all the Jaegers and businesses are legitimate. Click the "Get Verified" button after entering your payout preferences. You will make a quick stop on our page with Stripe for your financial verification. Be sure to complete all steps in this process to complete your signup. </p>
 
           <h3>Why we need this, you ask?</h3>
-          <p>So you can make legitimate money, of course. This info is needed to get you paid, and for 1099s to be created for tax purposes. All you data is secure, only used for legal and tax purposes, and not shared with anyone else. </p>
+          <p>So you can make legitimate money, of course. This info is needed to get you paid, and for 1099s to be created for tax purposes. All your data is secure, only used for legal and tax purposes, and not shared with anyone else. </p>
 
 
 
